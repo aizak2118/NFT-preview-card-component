@@ -1,0 +1,212 @@
+@import url("./default.css");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+:root {
+  --bg-main: rgba(13, 25, 44, 1);
+  --bg-card: rgba(21, 38, 63, 1);
+  --lighe-blue: rgba(139, 172, 217, 1);
+  --cyan: rgba(0, 255, 248, 1);
+  --border: rgba(46, 64, 90, 1);
+  box-shadow: rgba(0, 0, 0, 0.0953);
+  --white: rgba(255, 255, 255, 1);
+
+  --ff-outfit: "Outfit", sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semibold: 600;
+}
+
+body {
+  font-family: var(--ff-outfit);
+  font-weight: var(--fw-regular);
+  color: var(--lighe-blue);
+  font-size: 1.6rem;
+  background-color: var(--bg-main);
+
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* custom CSS */
+
+.heading {
+  font-size: 2.2rem;
+  font-weight: var(--fw-semibold);
+}
+
+.caption {
+  font-size: 1.6rem;
+  font-weight: var(--fw-regular);
+}
+
+.caption-bold {
+  font-size: 1.6rem;
+  font-weight: var(--fw-semibold);
+}
+
+.body-text {
+  font-size: 1.8rem;
+  font-weight: var(--fw-light);
+  line-height: 2.6rem;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.flex {
+  display: flex;
+  gap: 1.9rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.white {
+  color: var(--white);
+}
+
+.cyan {
+  color: var(--cyan);
+}
+
+/* card */
+
+.card {
+  width: 350px;
+  background-color: var(--bg-card);
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0 25px 50px 0 var(--box-shadow);
+}
+
+.card__img {
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+}
+
+.card__img a:hover {
+  cursor: pointer;
+}
+
+.card__img a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--cyan);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+}
+
+.card__img a:hover::before {
+  opacity: 0.5;
+}
+
+.card__img a::after {
+  content: "";
+  width: 48px;
+  height: 48px;
+  background-image: url(../images/icon-view.svg);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card__img a:hover::after {
+  opacity: 1;
+}
+
+.card__img img {
+  width: 302px;
+  height: 302px;
+}
+
+.card__price-offer-timer {
+  justify-content: space-between;
+}
+
+.card__price-offer-timer div {
+  height: 20px;
+}
+
+.card__price-offer-timer p {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  line-height: 1;
+}
+
+.price p::before {
+  content: "";
+  background-image: url("../images/icon-ethereum.svg");
+  width: 11px;
+  height: 18px;
+}
+
+.offer-timer p::before {
+  content: "";
+  background-image: url("../images/icon-clock.svg");
+  width: 16px;
+  height: 16px;
+}
+
+.card__border {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border);
+}
+
+.card__footer {
+  margin-bottom: 8px;
+}
+
+.card__footer img {
+  width: 33px;
+  height: 33px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+
+.card__footer p > a {
+  margin-left: 5px;
+}
+
+.card__footer p > a:hover,
+.card__title a:hover {
+  cursor: pointer;
+  color: var(--cyan);
+  transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 327px;
+  }
+
+  .card__img img {
+    width: 278px;
+    height: 278px;
+  }
+
+  .md-fs-15 {
+    font-size: 1.5rem;
+  }
+}
